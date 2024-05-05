@@ -25,7 +25,7 @@ function App() {
 
   const handleAdd = async () => {
     const response = await fetch(`${baseURL}/add`, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -40,7 +40,7 @@ function App() {
 
   const handleUpdate = async () => {
     const response = await fetch(`${baseURL}/update`, {
-      method: 'PATCH',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
