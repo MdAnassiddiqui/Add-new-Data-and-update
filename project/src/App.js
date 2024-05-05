@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; 
 
+// Define your base URL here
+const baseURL = "https://backend-2-kvnj.onrender.com";
+
 function App() {
   const [data, setData] = useState({});
   const [items, setItems] = useState([]);
@@ -12,7 +15,7 @@ function App() {
   }, []);
 
   const fetchCounts = async () => {
-    const response = await fetch('http://localhost:3000/count');
+    const response = await fetch(`${baseURL}/count`);
     if (response.ok) {
       const { addCount, updateCount } = await response.json();
       setAddCount(addCount);
@@ -21,7 +24,7 @@ function App() {
   };
 
   const handleAdd = async () => {
-    const response = await fetch('http://localhost:3000/add', {
+    const response = await fetch(`${baseURL}/add`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +39,7 @@ function App() {
   };
 
   const handleUpdate = async () => {
-    const response = await fetch('http://localhost:3000/update', {
+    const response = await fetch(`${baseURL}/update`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
