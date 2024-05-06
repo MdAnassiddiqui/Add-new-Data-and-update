@@ -48,8 +48,32 @@ function App() {
   };
 
   const handleUpdate = async () => {
-    // Similar implementation as handleAdd
+    try {
+      const response = await fetch(`${baseURL}/update`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), // Assuming data contains the updated item
+      });
+      if (response.ok) {
+        // Update the item in the local state
+        const updatedItems = items.map(item => {
+          if (item.id === data.id) {
+            return data; // Replace the old item with the updated item
+          }
+          return item;
+        });
+        setItems(updatedItems);
+        fetchCounts();
+      } else {
+        console.error("Failed to update data:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error updating data:", error);
+    }
   };
+  
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
