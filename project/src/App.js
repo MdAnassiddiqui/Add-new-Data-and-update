@@ -1,5 +1,6 @@
 import {useEffect,useState} from "react";
 // Define your base URL here
+import "./App.css";
 const baseURL = "https://backend-2-kvnj.onrender.com";
 
 function App() {
