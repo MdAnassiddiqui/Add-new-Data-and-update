@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 // Define your base URL here
 import "./App.css";
-const baseURL = "project-seven-pied.vercel.app";
+const baseURL = "https://backend-pink-iota-87.vercel.app/";
 
 function App() {
   const [data, setData] = useState({ exampleField: '' });
